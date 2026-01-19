@@ -56,6 +56,7 @@ services:
       - EMAIL_TO=按实际填写
       - REMINDER_DAYS_AHEAD=按实际填写
       - CURRENT_SEMESTERS=按实际填写
+      - CRON_SCHEDULE=按实际填写
 ```
 
 2.在项目根目录执行：```docker compose up -d```
@@ -72,6 +73,7 @@ services:
 | `EMAIL_TO`            | 接收提醒邮件的邮箱地址（可以和 `EMAIL_FROM` 相同）                 | `your_email@qq.com`   |
 | `REMINDER_DAYS_AHEAD` | 提前多少天开始提醒（包含截止当天，即 `0` 天代表当天截止）           | `7` (默认 `14`)       |
 | `CURRENT_SEMESTERS`   | 关注的学期列表，多个学期用逗号分隔（目前为 2025-2）        | `2025-2` (默认 `2025-2`) |
+| `CRON_SCHEDULE`   | 多久推送一次｜cron格式        | `0 10,18 * * *` (早上十点和下午六点推送一次) |
 
 **关于 `EMAIL_PASSWORD`（授权码）：**
 *   **QQ 邮箱**：登录网页版 QQ 邮箱 -> 设置 -> 账户 -> 开启 SMTP 服务，获取授权码。
