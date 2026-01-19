@@ -37,7 +37,7 @@ TronReminder 推荐使用 Docker 进行部署，方便快捷。
 | :-------------------- | :----------------------------------------------------------------- | :-------------------- |
 | `TRON_USERNAME`       | 您的 TronClass 账号（学号+@cityu.edu.mo）                                | `U1234567@cityu.edu.mo`            |
 | `TRON_PASSWORD`       | 您的 TronClass 密码                                                | `YourSecurePassword`  |
-| `EMAIL_FROM`          | 发送提醒邮件的邮箱地址 (smtp协议)                                            | `your_email@qq.com`   |
+| `EMAIL_FROM`          | 发送提醒邮件的邮箱地址 (smtp协议｜目前仅支持qq邮箱)                                            | `your_email@qq.com`   |
 | `EMAIL_PASSWORD`      | 发送邮件的授权码（非邮箱登录密码，请查阅邮箱服务提供商的文档）(smtp协议)    | `YourEmailAuthCode`   |
 | `EMAIL_TO`            | 接收提醒邮件的邮箱地址（可以和 `EMAIL_FROM` 相同）                 | `your_email@qq.com`   |
 | `REMINDER_DAYS_AHEAD` | 提前多少天开始提醒（包含截止当天，即 `0` 天代表当天截止）           | `7` (默认 `14`)       |
