@@ -1,4 +1,4 @@
-# 🤖 TronReminder - 澳门城市大学 TronClass 课程作业智能提醒机器人
+# 🤖 TronReminders - 澳门城市大学 TronClass 课程作业智能提醒机器人
 
 [![Python Version](https://img.shields.io/badge/python-3.x-blue.svg)](https://www.python.org/)
 [![Docker](https://img.shields.io/badge/docker-ready-blue.svg)](https://www.docker.com/)
