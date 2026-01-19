@@ -22,53 +22,22 @@
 
 TronReminder 推荐使用 Docker 进行部署，方便快捷。
 
-### 1. 环境变量配置
-
-在部署前，您需要准备以下环境变量。推荐创建一个 `.env` 文件，或直接在 Docker Compose 文件中设置。
-
-| 变量名                | 描述                                                               | 示例                  |
-| :-------------------- | :----------------------------------------------------------------- | :-------------------- |
-| `TRON_USERNAME`       | 您的 TronClass 账号（通常是学号）                                | `U1234567`            |
-| `TRON_PASSWORD`       | 您的 TronClass 密码                                                | `YourSecurePassword`  |
-| `EMAIL_FROM`          | 发送提醒邮件的邮箱地址                                             | `your_email@qq.com`   |
-| `EMAIL_PASSWORD`      | 发送邮件的授权码（非邮箱登录密码，请查阅邮箱服务提供商的文档）   | `YourEmailAuthCode`   |
-| `EMAIL_TO`            | 接收提醒邮件的邮箱地址（可以和 `EMAIL_FROM` 相同）                 | `your_email@qq.com`   |
-| `REMINDER_DAYS_AHEAD` | 提前多少天开始提醒（包含截止当天，即 `0` 天代表当天截止）           | `7` (默认 `14`)       |
-| `CURRENT_SEMESTERS`   | 关注的学期列表，多个学期用逗号分隔（例如：`2025-2,2026-1`）        | `2025-2` (默认 `2025-2`) |
-
-**关于 `EMAIL_PASSWORD`（授权码）：**
-*   **QQ 邮箱**：登录网页版 QQ 邮箱 -> 设置 -> 账户 -> 开启 SMTP 服务，获取授权码。
-*   **其他邮箱**：待支持
-
 
 ### 1. 镜像构建
 
 
+### 2. 环境变量配置
 
-### 2. Docker Compose 部署
+| 变量名                | 描述                                                               | 示例                  |
+| :-------------------- | :----------------------------------------------------------------- | :-------------------- |
+| `TRON_USERNAME`       | 您的 TronClass 账号（学号+@cityu.edu.mo）                                | `U1234567@cityu.edu.mo`            |
+| `TRON_PASSWORD`       | 您的 TronClass 密码                                                | `YourSecurePassword`  |
+| `EMAIL_FROM`          | 发送提醒邮件的邮箱地址 (smtp协议)                                            | `your_email@qq.com`   |
+| `EMAIL_PASSWORD`      | 发送邮件的授权码（非邮箱登录密码，请查阅邮箱服务提供商的文档）(smtp协议)    | `YourEmailAuthCode`   |
+| `EMAIL_TO`            | 接收提醒邮件的邮箱地址（可以和 `EMAIL_FROM` 相同）                 | `your_email@qq.com`   |
+| `REMINDER_DAYS_AHEAD` | 提前多少天开始提醒（包含截止当天，即 `0` 天代表当天截止）           | `7` (默认 `14`)       |
+| `CURRENT_SEMESTERS`   | 关注的学期列表，多个学期用逗号分隔（目前为 2025-2）        | `2025-2` (默认 `2025-2`) |
 
-请创建一个 `docker-compose.yml` 文件：
-
-```yaml
-version: '3.8'
-
-services:
-  tronreminder:
-    image: python:3.9-slim-buster # 或使用您的自定义镜像，如果已构建
-    container_name: tronreminder
-    restart: on-failure
-    working_dir: /app
-    volumes:
-      - .:/app # 将当前项目目录挂载到容器的 /app
-    environment:
-      - TRON_USERNAME=${TRON_USERNAME}
-      - TRON_PASSWORD=${TRON_PASSWORD}
-      - EMAIL_FROM=${EMAIL_FROM}
-      - EMAIL_PASSWORD=${EMAIL_PASSWORD}
-      - EMAIL_TO=${EMAIL_TO}
-      - REMINDER_DAYS_AHEAD=${REMINDER_DAYS_AHEAD:-14} # 默认14天
-      - CURRENT_SEMESTERS=${CURRENT_SEMESTERS:-2025-2} # 默认2025-2
-    command: ["python", "main.py"] # 假设您的主程序文件名为 main.py
-    # 如果您需要定时运行，可以使用 cron 或者 Docker Compose 的 healthcheck
-    # 例如，使用外部 cron 调度：
-    # docker exec tronreminder python main.py
+**关于 `EMAIL_PASSWORD`（授权码）：**
+*   **QQ 邮箱**：登录网页版 QQ 邮箱 -> 设置 -> 账户 -> 开启 SMTP 服务，获取授权码。
+*   **其他邮箱**：待支持
