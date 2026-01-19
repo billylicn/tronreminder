@@ -28,7 +28,7 @@
 
 ### 2. Docker Compose 部署
 
-3.创建一个 `docker-compose.yml` 文件：
+1.创建一个 `docker-compose.yml` 文件：
 
 ```yaml
 version: '3.8'
@@ -47,6 +47,9 @@ services:
       - REMINDER_DAYS_AHEAD=按实际填写
       - CURRENT_SEMESTERS=按实际填写
 ```
+
+2.在项目根目录执行：```docker compose up -d```
+
 
 ### 环境变量说明
 
