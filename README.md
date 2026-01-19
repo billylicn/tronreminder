@@ -1,4 +1,4 @@
-# 🤖 TronReminder - TronClass 课程作业智能提醒机器人
+# 🤖 TronReminder - 澳门城市大学 TronClass 课程作业智能提醒机器人
 
 [![Python Version](https://img.shields.io/badge/python-3.x-blue.svg)](https://www.python.org/)
 [![Docker](https://img.shields.io/badge/docker-ready-blue.svg)](https://www.docker.com/)
@@ -24,6 +24,11 @@ TronReminder 推荐使用 Docker 进行部署，方便快捷。
 
 
 ### 1. 镜像构建
+
+1. ```git clone```本项目
+
+2. 在项目根目录（`Dockerfile` 所在的目录）下执行以下命令来构建 Docker 镜像：
+```docker build -t tronreminder:latest ```
 
 
 ### 2. 环境变量配置
