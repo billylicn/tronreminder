@@ -1,4 +1,4 @@
-# 🤖 TronReminders - 澳门城市大学 TronClass 课程作业智能提醒机器人
+# 🤖 TronReminder - 澳门城市大学 TronClass 课程作业智能提醒机器人
 
 [![Python Version](https://img.shields.io/badge/python-3.x-blue.svg)](https://www.python.org/)
 [![Docker](https://img.shields.io/badge/docker-ready-blue.svg)](https://www.docker.com/)
@@ -16,10 +16,20 @@
 *   **邮件通知**：通过 QQ 邮箱等 SMTP 服务发送详细作业提醒。
 
 
+## ☁️ 能提醒的和不能提醒的
+
+  - ✅ 在 tronclass课程👉作業 里面的作业
+  - ❌ 通过**讨论**功能提交的作业
+  - ❌ 口头说明，未在tronclass发布的作业
+* **请勿过度依赖机器人推送，建议仅作为辅助使用**
 
 
 
-### 1. 镜像构建
+
+
+## 🤖构建与部署
+
+### 1. docker镜像构建
 
 1. ```git clone```本项目
 
