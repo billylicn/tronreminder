@@ -15,9 +15,8 @@
 *   **灵活配置**：可自定义提醒天数、关注学期等。
 *   **邮件通知**：通过 QQ 邮箱等 SMTP 服务发送详细作业提醒。
 
-## 🛠️ 快速部署
 
-TronReminder 推荐使用 Docker 进行部署，方便快捷。
+
 
 
 ### 1. 镜像构建
@@ -27,8 +26,29 @@ TronReminder 推荐使用 Docker 进行部署，方便快捷。
 2. 在项目根目录（`Dockerfile` 所在的目录）下执行以下命令来构建 Docker 镜像：
 ```docker build -t tronreminder:latest ```
 
+### 2. Docker Compose 部署
 
-### 2. 环境变量配置
+3.创建一个 `docker-compose.yml` 文件：
+
+```yaml
+version: '3.8'
+
+services:
+  tronreminder:
+    image: tronreminder:latest # 使用我们刚刚构建的镜像
+    container_name: tronreminder
+    restart: on-failure # 容器异常退出时自动重启
+    environment:
+      - TRON_USERNAME=按实际填写
+      - TRON_PASSWORD=按实际填写
+      - EMAIL_FROM=按实际填写
+      - EMAIL_PASSWORD=按实际填写
+      - EMAIL_TO=按实际填写
+      - REMINDER_DAYS_AHEAD=按实际填写
+      - CURRENT_SEMESTERS=按实际填写
+```
+
+### 环境变量说明
 
 | 变量名                | 描述                                                               | 示例                  |
 | :-------------------- | :----------------------------------------------------------------- | :-------------------- |
